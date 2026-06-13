@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { TrendingUp, Star, RefreshCw, ExternalLink } from "lucide-react";
+import { TrendingUp, Star, RefreshCw } from "lucide-react";
 
 interface MangaEntry {
   mal_id: number;
@@ -88,23 +88,23 @@ export default function TrendingManga() {
           <div>
             <h2 className="text-xs font-bold tracking-widest text-brand-cyan uppercase mb-3 flex items-center gap-2">
               <TrendingUp className="w-3.5 h-3.5" />
-              Dados Reais · MyAnimeList via Jikan API
+              Estudo de Traço · Referências de Estilo Consagradas
             </h2>
             <h3 className="text-3xl sm:text-4xl font-bold text-white">
-              Mangás em{" "}
+              Inspire seu Traço com{" "}
               <span className="bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink bg-clip-text text-transparent">
-                Alta Agora
+                Estilos de Sucesso
               </span>
             </h3>
-            <p className="text-slate-400 font-light text-sm mt-3 max-w-xl">
-              Os títulos mais populares do momento segundo o ranking global do MyAnimeList — atualizado de hora em hora.
+            <p className="text-slate-400 font-light text-sm mt-3 max-w-2xl">
+              Estude as técnicas e os traços das maiores obras do mundo. Nossa IA analisa a line-art e as retículas desses títulos populares para calibrar seus pincéis e guias de perspectiva.
             </p>
           </div>
 
           <button
             onClick={() => setRefreshKey((k) => k + 1)}
             disabled={loading}
-            className="flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-xl glass-card border-white/10 hover:border-brand-cyan/40 text-slate-300 hover:text-white transition-all duration-200 disabled:opacity-40 self-start sm:self-auto flex-shrink-0"
+            className="flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-xl manga-card-panel border-white/10 hover:border-brand-cyan/40 text-slate-300 hover:text-white transition-all duration-200 disabled:opacity-40 self-start sm:self-auto flex-shrink-0"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} />
             Atualizar
@@ -157,8 +157,13 @@ export default function TrendingManga() {
                       )}
 
                       {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <ExternalLink className="w-5 h-5 text-white" />
+                      <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-1.5 p-3 text-center">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-brand-cyan bg-brand-cyan/15 px-2.5 py-1 rounded-full border border-brand-cyan/20">
+                          Estudar Estilo IA
+                        </span>
+                        <span className="text-[9px] text-slate-300 font-light">
+                          Analise line-art & retículas
+                        </span>
                       </div>
                     </div>
 
