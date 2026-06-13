@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trash2, Wand2, Sparkles, Sliders, CheckCircle2, RefreshCw, PenTool } from "lucide-react";
 import confetti from "canvas-confetti";
@@ -313,6 +314,7 @@ export default function DrawingCanvas() {
         preloadedStylesRef.current[tmpl.id] = img;
       };
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Update stroke properties
@@ -648,7 +650,7 @@ export default function DrawingCanvas() {
     setGenerationStep(1);
 
     // Capture the current sketch
-    const sketchImage = new Image();
+    const sketchImage = new window.Image();
     sketchImage.src = canvas.toDataURL();
 
     // Start scanline animation
@@ -1085,11 +1087,15 @@ export default function DrawingCanvas() {
 
               {/* Image Preview Area */}
               <div className="relative w-full aspect-square max-w-[260px] mx-auto rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#0C0914] mb-6 flex items-center justify-center">
-                <img
-                  src={resultImage}
-                  alt={resultName}
-                  className="object-contain w-full h-full"
-                />
+                {resultImage && (
+                  <Image
+                    src={resultImage}
+                    alt={resultName}
+                    fill
+                    className="object-contain"
+                    sizes="260px"
+                  />
+                )}
               </div>
 
               <div className="flex gap-3">

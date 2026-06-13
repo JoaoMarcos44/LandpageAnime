@@ -2,14 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── CSS variables ─────────────────────────────────────────────────── */
 :root {
-  --background: #0A0A0C;
-  --foreground: #F3F4F6;
-  --neon-purple: #D92B2B;
-  --neon-pink: #FF5A5A;
-  --neon-cyan: #38BDF8;
+  --background:   #06060C;
+  --foreground:   #F3F4F6;
+  --neon-purple:  #C8102E; /* 朱色 vermillion */
+  --neon-pink:    #FF6B9D; /* 桜色 sakura    */
+  --neon-cyan:    #4361EE; /* 藍色 indigo    */
 }
 
+/* ── Base reset ────────────────────────────────────────────────────── */
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -19,170 +21,173 @@ body {
   color: var(--foreground);
   background-color: var(--background);
   overflow-x: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+               Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0C0914;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #251B3B;
-  border-radius: 4px;
-}
-
+/* ── Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 8px; }
+::-webkit-scrollbar-track { background: #0C0914; }
+::-webkit-scrollbar-thumb { background: #2A0A12; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--neon-purple);
   box-shadow: 0 0 10px var(--neon-purple);
 }
 
-/* Glassmorphism Utilities */
-@layer components {
-  .glass-card {
-    background: rgba(12, 9, 20, 0.45);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  
-  .glass-card-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .glass-card-hover:hover {
-    background: rgba(16, 12, 28, 0.65);
-    border-color: rgba(168, 85, 247, 0.3);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.15);
-  }
+/* ── Canvas ────────────────────────────────────────────────────────── */
+canvas { touch-action: none; }
 
-  .text-neon-glow-purple {
-    text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
-  }
-
-  .text-neon-glow-cyan {
-    text-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
-  }
+/* ── Global kanji background ───────────────────────────────────────── */
+/* Fixed layer behind all content; sections with solid bg-brand-bg will cover it. */
+/* Kanji become visible where sections use the pattern utility classes below.      */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('/kanji-bg.svg');
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8; /* kanji opacity is already low inside the SVG */
 }
 
-/* Canvas utilities */
-canvas {
-  touch-action: none;
-}
-
-/* Custom grid background */
-.grid-bg {
-  background-size: 40px 40px;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-}
-
-/* Manga Paper Texture */
-.manga-paper {
-  position: relative;
-}
+/* ── Paper grain overlay ───────────────────────────────────────────── */
 .manga-paper::after {
   content: "";
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.08; /* Tactile paper grain */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.06;
   pointer-events: none;
   mix-blend-mode: overlay;
   z-index: 99;
 }
 
-/* Manga Halftone Screentone Pattern */
+/* ── Glassmorphism ─────────────────────────────────────────────────── */
+@layer components {
+  .glass-card {
+    background: rgba(10, 6, 18, 0.50);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(18, 6, 12, 0.70);
+    border-color: rgba(200, 16, 46, 0.30);
+    box-shadow: 0 0 25px rgba(200, 16, 46, 0.12);
+  }
+
+  /* text glows */
+  .text-neon-glow-purple {
+    text-shadow: 0 0 16px rgba(200, 16, 46, 0.65),
+                 0 0 40px rgba(200, 16, 46, 0.25);
+  }
+
+  .text-neon-glow-cyan {
+    text-shadow: 0 0 16px rgba(67, 97, 238, 0.65),
+                 0 0 40px rgba(67, 97, 238, 0.25);
+  }
+}
+
+/* ── Grid background (Hero) ────────────────────────────────────────── */
+/* Kanji tile + subtle white grid lines */
+.grid-bg {
+  background-size: 400px 400px, 40px 40px, 40px 40px;
+  background-image:
+    url('/kanji-bg.svg'),
+    linear-gradient(to right,  rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+}
+
+/* ── Halftone screentone ───────────────────────────────────────────── */
 .bg-manga-screentone {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(rgba(255,255,255,0.07) 1.5px, transparent 1.5px);
   background-size: 16px 16px;
 }
 
-/* Manga Cyan Drafting Grid */
+/* ── Drafting grid (indigo 藍色) + kanji ───────────────────────────── */
 .bg-manga-draft-grid {
-  background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, rgba(6, 182, 212, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(6, 182, 212, 0.08) 1px, transparent 1px);
+  background-size: 400px 400px, 50px 50px, 50px 50px;
+  background-image:
+    url('/kanji-bg.svg'),
+    linear-gradient(to right,  rgba(67, 97, 238, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(67, 97, 238, 0.07) 1px, transparent 1px);
 }
 
-/* Manga Speed Lines (Linear/Slanted) */
+/* ── Manga speed lines ─────────────────────────────────────────────── */
 .bg-manga-speedlines {
   background-image: repeating-linear-gradient(
     -45deg,
-    rgba(255, 255, 255, 0.05) 0px,
-    rgba(255, 255, 255, 0.05) 1px,
+    rgba(255,255,255,0.04) 0px,
+    rgba(255,255,255,0.04) 1px,
     transparent 1px,
     transparent 20px
   );
 }
 
-/* Manga Radial Speed Lines (Action Zoom) */
+/* ── Radial action lines ───────────────────────────────────────────── */
 .bg-manga-radial-speedlines {
   background-image: conic-gradient(
     from 0deg at 50% 50%,
     transparent 0deg 0.8deg,
-    rgba(255, 255, 255, 0.08) 0.8deg 1.2deg,
+    rgba(255,255,255,0.07) 0.8deg 1.2deg,
     transparent 1.2deg 3deg,
-    rgba(255, 255, 255, 0.09) 3deg 3.3deg,
+    rgba(255,255,255,0.08) 3deg 3.3deg,
     transparent 3.3deg 5deg,
-    rgba(255, 255, 255, 0.06) 5deg 5.5deg,
+    rgba(255,255,255,0.05) 5deg 5.5deg,
     transparent 5.5deg 8deg,
-    rgba(255, 255, 255, 0.08) 8deg 8.3deg,
+    rgba(255,255,255,0.07) 8deg 8.3deg,
     transparent 8.3deg 12deg
   );
 }
 
-/* Manga Comic Panel Border (Brutalist Outline with Pop Offset Shadow) */
+/* ── Manga comic panel ─────────────────────────────────────────────── */
+/* Vermillion offset shadow → indigo on hover */
 .manga-card-panel {
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  background-color: rgba(12, 9, 20, 0.8);
-  box-shadow: 6px 6px 0px rgba(168, 85, 247, 0.4);
+  border: 2px solid rgba(255,255,255,0.16);
+  background-color: rgba(10, 6, 18, 0.82);
+  box-shadow: 6px 6px 0px rgba(200, 16, 46, 0.45);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .manga-card-panel:hover {
   transform: translate(-3px, -3px);
-  border-color: rgba(6, 182, 212, 0.6);
-  box-shadow: 9px 9px 0px rgba(6, 182, 212, 0.65);
+  border-color: rgba(67, 97, 238, 0.55);
+  box-shadow: 9px 9px 0px rgba(67, 97, 238, 0.60);
 }
 
-/* Manga Page Crop/Bleed Corner Ticks Component style */
-.manga-crop-marks {
-  position: relative;
-}
-.manga-crop-marks::before, .manga-crop-marks::after {
+/* ── Crop marks ────────────────────────────────────────────────────── */
+.manga-crop-marks { position: relative; }
+.manga-crop-marks::before,
+.manga-crop-marks::after {
   content: "";
   position: absolute;
   width: 14px;
   height: 14px;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.50;
 }
 .manga-crop-marks::before {
-  top: 10px;
-  left: 10px;
-  border-top: 1.5px solid rgba(255, 255, 255, 0.55);
-  border-left: 1.5px solid rgba(255, 255, 255, 0.55);
+  top: 10px; left: 10px;
+  border-top:  1.5px solid rgba(255,255,255,0.50);
+  border-left: 1.5px solid rgba(255,255,255,0.50);
 }
 .manga-crop-marks::after {
-  bottom: 10px;
-  right: 10px;
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.55);
-  border-right: 1.5px solid rgba(255, 255, 255, 0.55);
+  bottom: 10px; right: 10px;
+  border-bottom: 1.5px solid rgba(255,255,255,0.50);
+  border-right:  1.5px solid rgba(255,255,255,0.50);
 }
 
-/* Custom Manga Onomatopeia Text Outlines */
+/* ── Manga onomatopeia ghost text ──────────────────────────────────── */
 .text-manga-onomatopeia {
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
-  text-shadow: 3px 3px 0px rgba(168, 85, 247, 0.1);
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.10);
+  text-shadow: 3px 3px 0px rgba(200, 16, 46, 0.10);
   font-weight: 900;
   letter-spacing: -0.05em;
   user-select: none;
@@ -191,15 +196,10 @@ canvas {
 
 .text-manga-onomatopeia-cyan {
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(6, 182, 212, 0.15);
-  text-shadow: 3px 3px 0px rgba(6, 182, 212, 0.08);
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  -webkit-text-stroke: 1.5px rgba(67, 97, 238, 0.14);
+  text-shadow: 3px 3px 0px rgba(67, 97, 238, 0.08);
   font-weight: 900;
   letter-spacing: -0.05em;
   user-select: none;
   pointer-events: none;
 }
-
-
-
-

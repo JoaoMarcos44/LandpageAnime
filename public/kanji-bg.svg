@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- 漫 manga -->
+  <text x="10" y="82" font-size="74" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.045" transform="rotate(-5 47 68)">漫</text>
+  <!-- 画 picture -->
+  <text x="172" y="66" font-size="48" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.03" transform="rotate(8 196 55)">画</text>
+  <!-- 力 power -->
+  <text x="292" y="112" font-size="52" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.035" transform="rotate(12 318 97)">力</text>
+  <!-- 影 shadow -->
+  <text x="96" y="150" font-size="42" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.025" transform="rotate(-12 117 139)">影</text>
+  <!-- 夢 dream -->
+  <text x="18" y="232" font-size="56" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.03" transform="rotate(-7 46 219)">夢</text>
+  <!-- 魂 soul -->
+  <text x="168" y="250" font-size="66" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.04">魂</text>
+  <!-- 剣 sword -->
+  <text x="308" y="310" font-size="46" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.03" transform="rotate(7 331 297)">剣</text>
+  <!-- 道 path -->
+  <text x="48" y="378" font-size="58" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.035">道</text>
+  <!-- 炎 flame -->
+  <text x="212" y="394" font-size="52" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.03" transform="rotate(-4 238 383)">炎</text>
+  <!-- 光 light -->
+  <text x="338" y="382" font-size="44" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.025" transform="rotate(9 360 371)">光</text>
+  <!-- 絵 drawing (smaller, fills gap) -->
+  <text x="148" y="152" font-size="36" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.02" transform="rotate(4 166 143)">絵</text>
+  <!-- 神 spirit -->
+  <text x="258" y="214" font-size="38" font-family="Georgia,'Times New Roman',serif" fill="white" opacity="0.02" transform="rotate(-6 277 204)">神</text>
+</svg>
