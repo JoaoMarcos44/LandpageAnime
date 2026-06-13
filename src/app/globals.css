@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --background: #06040A;
-  --foreground: #F8FAFC;
-  --neon-purple: #A855F7;
-  --neon-pink: #EC4899;
-  --neon-cyan: #06B6D4;
+  --background: #0A0A0C;
+  --foreground: #F3F4F6;
+  --neon-purple: #D92B2B;
+  --neon-pink: #FF5A5A;
+  --neon-cyan: #38BDF8;
 }
 
 * {
