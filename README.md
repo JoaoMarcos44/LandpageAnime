@@ -1,5 +1,9 @@
 # 🎨 MangaForge — Plataforma de Criação & Assistência IA para Mangás
 
+
+<img width="1901" height="905" alt="image" src="https://github.com/user-attachments/assets/d8ab8267-6b43-43c3-8ba3-21ee7d4a1ba1" />
+
+
 MangaForge é uma plataforma web interativa de alto desempenho voltada para criadores de mangás, unindo a precisão das técnicas tradicionais de desenho à flexibilidade das tecnologias web e assistência da inteligência artificial generativa.
 
 Esta documentação foi elaborada para guiar novos desenvolvedores pelo ecossistema técnico do projeto.
