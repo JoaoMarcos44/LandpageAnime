@@ -30,7 +30,7 @@ const progressData = [
   {
     name: "Progresso",
     value: 72,
-    fill: "#EC4899", // Neon pink
+    fill: "#FF5A5A", // Manga Coral Rose
   },
 ];
 
@@ -150,12 +150,12 @@ export default function CreatorDashboard() {
                     >
                       <defs>
                         <linearGradient id="gradientEsboços" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="#A855F7" stopOpacity={0.4} />
-                          <stop offset="95%" stopColor="#A855F7" stopOpacity={0.0} />
+                          <stop offset="5%" stopColor="#D92B2B" stopOpacity={0.4} />
+                          <stop offset="95%" stopColor="#D92B2B" stopOpacity={0.0} />
                         </linearGradient>
                         <linearGradient id="gradientPáginas" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="#06B6D4" stopOpacity={0.4} />
-                          <stop offset="95%" stopColor="#06B6D4" stopOpacity={0.0} />
+                          <stop offset="5%" stopColor="#38BDF8" stopOpacity={0.4} />
+                          <stop offset="95%" stopColor="#38BDF8" stopOpacity={0.0} />
                         </linearGradient>
                       </defs>
                       
@@ -179,7 +179,7 @@ export default function CreatorDashboard() {
                       <Area
                         type="monotone"
                         dataKey="esboços"
-                        stroke="#A855F7"
+                        stroke="#D92B2B"
                         strokeWidth={2}
                         fillOpacity={1}
                         fill="url(#gradientEsboços)"
@@ -189,7 +189,7 @@ export default function CreatorDashboard() {
                       <Area
                         type="monotone"
                         dataKey="páginas"
-                        stroke="#06B6D4"
+                        stroke="#38BDF8"
                         strokeWidth={2}
                         fillOpacity={1}
                         fill="url(#gradientPáginas)"
@@ -258,7 +258,7 @@ export default function CreatorDashboard() {
                           background={{ fill: "rgba(255, 255, 255, 0.04)" }}
                           dataKey="value"
                           cornerRadius={10}
-                          fill="#EC4899" // Neon Pink
+                          fill="#FF5A5A" // Manga Coral Rose
                         />
                       </RadialBarChart>
                     </ResponsiveContainer>

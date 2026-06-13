@@ -150,7 +150,7 @@ export default function DrawingCanvas() {
   const contextRef = useRef<CanvasRenderingContext2D | null>(null);
   const preloadedStylesRef = useRef<{ [key: string]: HTMLImageElement }>({});
   
-  const [brushColor, setBrushColor] = useState("#A855F7"); // Start with neon purple
+  const [brushColor, setBrushColor] = useState("#D92B2B"); // Start with Manga Crimson Red
   const [brushSize, setBrushSize] = useState(5);
   const [isDrawing, setIsDrawing] = useState(false);
   
@@ -185,12 +185,12 @@ export default function DrawingCanvas() {
   });
 
   const colors = [
-    { name: "Purple", value: "#A855F7", shadow: "shadow-purple-500/30" },
-    { name: "Pink", value: "#EC4899", shadow: "shadow-pink-500/30" },
-    { name: "Cyan", value: "#06B6D4", shadow: "shadow-cyan-500/30" },
-    { name: "Yellow", value: "#FACC15", shadow: "shadow-yellow-500/30" },
-    { name: "White", value: "#FFFFFF", shadow: "shadow-white/30" },
-    { name: "Black", value: "#0C0914", shadow: "shadow-black/30" },
+    { name: "Vermelho Mangá", value: "#D92B2B", shadow: "shadow-brand-purple/30" },
+    { name: "Rosa Coral", value: "#FF5A5A", shadow: "shadow-brand-pink/30" },
+    { name: "Azul de Esboço", value: "#38BDF8", shadow: "shadow-brand-cyan/30" },
+    { name: "Ouro", value: "#FACC15", shadow: "shadow-yellow-500/30" },
+    { name: "Branco", value: "#FFFFFF", shadow: "shadow-white/30" },
+    { name: "Nanquim", value: "#0A0A0C", shadow: "shadow-black/30" },
   ];
 
   const drawSketchInstant = (type: "portrait" | "tree" | "dog") => {
@@ -199,7 +199,7 @@ export default function DrawingCanvas() {
     if (!canvas || !ctx) return;
 
     // Set dark background
-    ctx.fillStyle = "#120F1D";
+    ctx.fillStyle = "#141416";
     ctx.fillRect(0, 0, 400, 400);
 
     // Draw reference grid lines faintly
@@ -394,7 +394,7 @@ export default function DrawingCanvas() {
     const context = contextRef.current;
     if (!canvas || !context) return;
 
-    context.fillStyle = "#120F1D";
+    context.fillStyle = "#141416";
     context.fillRect(0, 0, 400, 400);
 
     // Draw reference grid lines faintly
@@ -678,9 +678,9 @@ export default function DrawingCanvas() {
 
       if (scanlineY < 400) {
         ctx.save();
-        ctx.strokeStyle = "rgba(6, 182, 212, 0.95)";
+        ctx.strokeStyle = "rgba(56, 189, 248, 0.95)";
         ctx.lineWidth = 2.5;
-        ctx.shadowColor = "#06B6D4";
+        ctx.shadowColor = "#38BDF8";
         ctx.shadowBlur = 10;
         ctx.beginPath();
         ctx.moveTo(0, scanlineY);
@@ -712,7 +712,7 @@ export default function DrawingCanvas() {
           particleCount: 80,
           spread: 60,
           origin: { y: 0.6 },
-          colors: ["#A855F7", "#EC4899", "#06B6D4"],
+          colors: ["#D92B2B", "#FF5A5A", "#38BDF8"],
         });
 
         setTimeout(() => {
@@ -738,7 +738,7 @@ export default function DrawingCanvas() {
   };
 
   return (
-    <section id="demo" className="py-24 relative overflow-hidden bg-[#0C0914] bg-manga-draft-grid bg-manga-screentone">
+    <section id="demo" className="py-24 relative overflow-hidden bg-brand-bg bg-manga-draft-grid bg-manga-screentone">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

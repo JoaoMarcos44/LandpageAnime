@@ -36,7 +36,7 @@ export default function CTA() {
         particleCount: 100,
         spread: 70,
         origin: { y: 0.8 },
-        colors: ["#A855F7", "#EC4899", "#06B6D4"],
+        colors: ["#D92B2B", "#FF5A5A", "#38BDF8"],
       });
     }, 1200);
   };

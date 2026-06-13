@@ -26,7 +26,7 @@ const progressData = [
   {
     name: "Progresso",
     value: 72,
-    fill: "#06B6D4", // Neon Cyan
+    fill: "#38BDF8", // Drafting Sky Blue
   },
 ];
 
@@ -159,14 +159,14 @@ export default function CreatorOverview() {
                 <AreaChart data={sparklineData} margin={{ top: 5, right: 0, left: 0, bottom: 0 }}>
                   <defs>
                     <linearGradient id="glowPurple" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#A855F7" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#A855F7" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#D92B2B" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#D92B2B" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <Area
                     type="monotone"
                     dataKey="lines"
-                    stroke="#A855F7"
+                    stroke="#D92B2B"
                     strokeWidth={1.5}
                     fillOpacity={1}
                     fill="url(#glowPurple)"
