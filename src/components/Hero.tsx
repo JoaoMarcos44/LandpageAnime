@@ -307,34 +307,52 @@ export default function Hero() {
         <div className="absolute top-[40%] right-[5%] w-[30vw] h-[30vw] rounded-full bg-brand-cyan/10 blur-[120px] animate-pulse-slow" />
         <div className="absolute bottom-[-10%] left-[25%] w-[40vw] h-[40vw] rounded-full bg-brand-pink/8 blur-[150px] animate-pulse-slow" />
 
+        {/* Diagonal Manga Panel Split Overlays */}
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full opacity-[0.08] text-slate-400 stroke-current stroke-[0.3] fill-none pointer-events-none">
+          <line x1="-10" y1="20" x2="110" y2="35" />
+          <line x1="-10" y1="75" x2="110" y2="60" />
+          <line x1="35" y1="-10" x2="25" y2="110" />
+          <line x1="75" y1="-10" x2="85" y2="110" />
+        </svg>
+
+        {/* Large Anime/Manga Eyes outline sketch in center-left background */}
+        <svg viewBox="0 0 200 60" className="absolute left-[2%] top-[30%] w-[32vw] max-w-[420px] opacity-[0.14] text-brand-purple stroke-current stroke-[1.2] fill-none pointer-events-none hidden md:block">
+          {/* Left Eye */}
+          <path d="M 20 35 C 30 20, 60 20, 70 35 C 60 41, 30 41, 20 35 Z" strokeWidth="1.8" />
+          <ellipse cx="45" cy="32" rx="10" ry="7.5" strokeWidth="1.8" />
+          <ellipse cx="45" cy="32" rx="4.5" ry="4" fill="currentColor" />
+          <path d="M 15 32 C 30 14, 60 14, 75 32" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M 22 18 C 35 12, 55 12, 68 18" strokeWidth="2" strokeLinecap="round" />
+          {/* Right Eye */}
+          <path d="M 130 35 C 140 20, 170 20, 180 35 C 170 41, 140 41, 130 35 Z" strokeWidth="1.8" />
+          <ellipse cx="155" cy="32" rx="10" ry="7.5" strokeWidth="1.8" />
+          <ellipse cx="155" cy="32" rx="4.5" ry="4" fill="currentColor" />
+          <path d="M 125 32 C 140 14, 170 14, 185 32" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M 132 18 C 145 12, 165 12, 178 18" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+
+        {/* Huge Manga Onomatopeias in Background */}
+        {/* ゴゴゴ... (Menacing/Rumbling tension) on the bottom left */}
+        <div className="absolute left-[4%] bottom-[12%] text-[6vw] font-black text-manga-onomatopeia-cyan select-none pointer-events-none -rotate-12 opacity-80">
+          ゴゴゴゴゴ...
+        </div>
+
+        {/* ドンッ！ (Dramatic Reveal Impact) behind Hero content / tablet */}
+        <div className="absolute right-[8%] top-[14%] text-[9vw] font-black text-manga-onomatopeia select-none pointer-events-none rotate-6 opacity-75">
+          ドンッ！
+        </div>
+
         {/* Floating Manga Speech Bubble SVG */}
-        <svg viewBox="0 0 100 100" className="absolute top-[12%] right-[12%] w-24 h-24 text-brand-purple/25 stroke-current stroke-[1.5] fill-none opacity-50 animate-float-medium hidden md:block">
+        <svg viewBox="0 0 100 100" className="absolute top-[8%] left-[45%] w-20 h-20 text-brand-pink/20 stroke-current stroke-[1.5] fill-none opacity-50 animate-float-medium hidden lg:block">
           <path d="M50 10 L58 25 L75 18 L68 35 L88 38 L72 52 L85 70 L65 68 L70 88 L52 75 L45 90 L38 72 L20 82 L28 65 L10 60 L28 48 L15 30 L35 38 L32 15 L48 28 Z" />
           <text x="50" y="54" fontSize="12" fontWeight="900" fontStyle="italic" textAnchor="middle" fill="currentColor">POW!</text>
         </svg>
 
         {/* Floating Manga Pen Nib SVG */}
-        <svg viewBox="0 0 100 100" className="absolute bottom-[25%] left-[6%] w-20 h-20 text-brand-cyan/25 stroke-current stroke-[1.2] fill-none opacity-50 animate-float-slow hidden md:block">
+        <svg viewBox="0 0 100 100" className="absolute bottom-[20%] left-[30%] w-16 h-16 text-brand-cyan/25 stroke-current stroke-[1.2] fill-none opacity-50 animate-float-slow hidden lg:block">
           <path d="M50 15 L68 45 L62 85 L38 85 L32 45 Z" />
           <path d="M50 15 L50 58" />
           <circle cx="50" cy="58" r="4.5" />
-          <text x="50" y="96" fontSize="10" fontWeight="bold" textAnchor="middle" fill="currentColor" opacity="0.6">G-PEN</text>
-        </svg>
-
-        {/* Floating Shoujo Star sparkles */}
-        <svg viewBox="0 0 100 100" className="absolute top-[32%] left-[10%] w-16 h-16 text-brand-pink/35 stroke-current stroke-[1.5] fill-none opacity-60 animate-spin-slow">
-          <path d="M50 15 L54 41 L80 45 L54 49 L50 75 L46 49 L20 45 L46 41 Z" />
-        </svg>
-
-        <svg viewBox="0 0 100 100" className="absolute bottom-[30%] right-[15%] w-12 h-12 text-brand-cyan/35 stroke-current stroke-[1.2] fill-none opacity-50 animate-pulse-slow">
-          <path d="M50 25 L53 43 L71 46 L53 49 L50 67 L47 49 L29 46 L47 43 Z" />
-        </svg>
-
-        {/* Floating Manga Panel Layout Frames */}
-        <svg viewBox="0 0 100 100" className="absolute top-[55%] left-[20%] w-28 h-28 text-white/10 stroke-current stroke-1 fill-none opacity-30 -rotate-12 hidden lg:block">
-          <rect x="5" y="5" width="90" height="90" rx="6" />
-          <line x1="50" y1="5" x2="50" y2="95" strokeDasharray="3,3" />
-          <line x1="5" y1="45" x2="95" y2="45" />
         </svg>
       </motion.div>
 
