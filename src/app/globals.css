@@ -3,25 +3,178 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #06040A;
+  --foreground: #F8FAFC;
+  --neon-purple: #A855F7;
+  --neon-pink: #EC4899;
+  --neon-cyan: #06B6D4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0914;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #251B3B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-purple);
+  box-shadow: 0 0 10px var(--neon-purple);
+}
+
+/* Glassmorphism Utilities */
+@layer components {
+  .glass-card {
+    background: rgba(12, 9, 20, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card-hover:hover {
+    background: rgba(16, 12, 28, 0.65);
+    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.15);
+  }
+
+  .text-neon-glow-purple {
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+  }
+
+  .text-neon-glow-cyan {
+    text-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
   }
 }
+
+/* Canvas utilities */
+canvas {
+  touch-action: none;
+}
+
+/* Custom grid background */
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Manga Paper Texture */
+.manga-paper {
+  position: relative;
+}
+.manga-paper::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 99;
+}
+
+/* Manga Halftone Screentone Pattern */
+.bg-manga-screentone {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1.2px, transparent 1.2px);
+  background-size: 14px 14px;
+}
+
+/* Manga Cyan Drafting Grid */
+.bg-manga-draft-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.035) 1px, transparent 1px);
+}
+
+/* Manga Speed Lines (Linear/Slanted) */
+.bg-manga-speedlines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 24px
+  );
+}
+
+/* Manga Radial Speed Lines (Action Zoom) */
+.bg-manga-radial-speedlines {
+  background-image: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg 0.8deg,
+    rgba(255, 255, 255, 0.035) 0.8deg 1.2deg,
+    transparent 1.2deg 3deg,
+    rgba(255, 255, 255, 0.04) 3deg 3.3deg,
+    transparent 3.3deg 5deg,
+    rgba(255, 255, 255, 0.025) 5deg 5.5deg,
+    transparent 5.5deg 8deg,
+    rgba(255, 255, 255, 0.035) 8deg 8.3deg,
+    transparent 8.3deg 12deg
+  );
+}
+
+/* Manga Comic Panel Border (Brutalist Outline with Pop Offset Shadow) */
+.manga-card-panel {
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(12, 9, 20, 0.7);
+  box-shadow: 4px 4px 0px rgba(168, 85, 247, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.manga-card-panel:hover {
+  transform: translate(-3px, -3px);
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 7px 7px 0px rgba(6, 182, 212, 0.5);
+}
+
+/* Manga Page Crop/Bleed Corner Ticks Component style */
+.manga-crop-marks {
+  position: relative;
+}
+.manga-crop-marks::before, .manga-crop-marks::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  opacity: 0.4;
+}
+.manga-crop-marks::before {
+  top: 10px;
+  left: 10px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.4);
+}
+.manga-crop-marks::after {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-right: 1.5px solid rgba(255, 255, 255, 0.4);
+}
+
+
