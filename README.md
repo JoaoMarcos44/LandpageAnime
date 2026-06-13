@@ -48,7 +48,6 @@ src/
 │   │   ├── AIEditorChat.tsx     # Chat reativo de mentoria com suporte a upload de esboços
 │   │   └── CreatorOverview.tsx  # Métricas rápidas e painel bento
 │   ├── CTA.tsx                  # Seção de call-to-action
-│   ├── CreatorDashboard.tsx     # Gráficos animados (AreaChart & RadialBarChart)
 │   ├── DrawingCanvas.tsx        # Canvas interativo com guias, pincéis e renderizador IA
 │   ├── FAQ.tsx                  # Acordeão de perguntas frequentes
 │   ├── Features.tsx             # Grid com diferenciais do editor MangaForge
